@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - Gourmet Bistro</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Gourmet Bistro</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="order-form-section">
+    <div class="order-form-container">
+      <h2>Select Payment Method</h2>
+      
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="flash-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      
+      <div id="selected-items">
+        <h3>Your Order:</h3>
+        <ul>
+          {% for item, quantity in items.items() %}
+            <li>{{ item }} - Qty: {{ quantity }} - Total: Nrs {{ (ITEM_PRICES[item] * quantity) | round(2) }}</li>
+          {% endfor %}
+        </ul>
+        <p><strong>Subtotal: Nrs {{ subtotal | round(2) }}</strong></p>
+        <p>Cash on Delivery: +Nrs {{ delivery_fee | round(2) }} fee</p>
+      </div>
+      
+      <form action="{{ url_for('select_payment') }}" method="post">
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="payment_method" value="card" id="card-payment">
+            <div class="payment-option-content">
+              <span>Credit/Debit Card</span>
+              <img src="/static/card.png" alt="Card" class="payment-icon">
+            </div>
+          </label>
+          <div class="payment-notice" id="card-notice">
+            Online payments are not available in your country
+          </div>
+          
+          <label class="payment-option">
+            <input type="radio" name="payment_method" value="cash_on_delivery" checked>
+            <div class="payment-option-content">
+              <span>Cash on Delivery (+Nrs {{ delivery_fee | round(2) }})</span>
+              <img src="/static/cash.png" alt="Cash" class="payment-icon">
+            </div>
+          </label>
+        </div>
+        
+        <button type="submit" class="continue-btn">Continue to Order Details</button>
+      </form>
+    </div>
+  </section>
+  <footer class="footer">
+    <p>© 2025 Gourmet Bistro. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('card-payment').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('card-notice').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('card-notice').style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

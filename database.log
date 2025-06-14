@@ -1,0 +1,638 @@
+2025-06-14 18:30:46,098 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 537, in open_connection
+    addrinfos = socket.getaddrinfo(
+        self.server_host,
+    ...<3 lines>...
+        socket.SOL_TCP,
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 30, in get_db_connection
+    conn = mysql.connector.connect(**DB_CONFIG)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 533, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 557, in open_connection
+    raise InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err))
+    ) from err
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+2025-06-14 18:30:46,148 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 18:30:46,148 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 18:30:46,151 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:30:47,407 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 537, in open_connection
+    addrinfos = socket.getaddrinfo(
+        self.server_host,
+    ...<3 lines>...
+        socket.SOL_TCP,
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 30, in get_db_connection
+    conn = mysql.connector.connect(**DB_CONFIG)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 533, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 557, in open_connection
+    raise InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err))
+    ) from err
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+2025-06-14 18:30:47,440 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 18:30:47,448 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 18:31:16,903 - werkzeug - INFO -  * Detected change in 'c:\\Users\\nisch\\Nischal\\gourmet-bistro - Copy\\init_database.py', reloading
+2025-06-14 18:31:16,970 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:32:15,974 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 537, in open_connection
+    addrinfos = socket.getaddrinfo(
+        self.server_host,
+    ...<3 lines>...
+        socket.SOL_TCP,
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 30, in get_db_connection
+    conn = mysql.connector.connect(**DB_CONFIG)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 533, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 557, in open_connection
+    raise InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err))
+    ) from err
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+2025-06-14 18:32:16,012 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 18:32:16,013 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 18:32:16,016 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:32:17,401 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 537, in open_connection
+    addrinfos = socket.getaddrinfo(
+        self.server_host,
+    ...<3 lines>...
+        socket.SOL_TCP,
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 30, in get_db_connection
+    conn = mysql.connector.connect(**DB_CONFIG)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 533, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 557, in open_connection
+    raise InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err))
+    ) from err
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+2025-06-14 18:32:17,427 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 18:32:17,431 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 18:33:19,362 - werkzeug - INFO -  * Detected change in 'c:\\Users\\nisch\\Nischal\\gourmet-bistro - Copy\\init_database.py', reloading
+2025-06-14 18:33:19,428 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:33:21,120 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 537, in open_connection
+    addrinfos = socket.getaddrinfo(
+        self.server_host,
+    ...<3 lines>...
+        socket.SOL_TCP,
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 32, in get_db_connection
+    conn = mysql.connector.connect(**DB_CONFIG)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 533, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 557, in open_connection
+    raise InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err))
+    ) from err
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+2025-06-14 18:33:21,143 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 18:33:21,147 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 18:33:41,460 - werkzeug - INFO -  * Detected change in 'c:\\Users\\nisch\\Nischal\\gourmet-bistro - Copy\\init_database.py', reloading
+2025-06-14 18:33:41,536 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:33:43,431 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 537, in open_connection
+    addrinfos = socket.getaddrinfo(
+        self.server_host,
+    ...<3 lines>...
+        socket.SOL_TCP,
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 32, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 533, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 557, in open_connection
+    raise InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err))
+    ) from err
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on '%-.100s:%u' (%s) (Warning: %u format: a real number is required, not str)
+2025-06-14 18:33:43,436 - init_database - ERROR - Attempted connection with: host=dpg-d16k51gdl3ps739fuchg-a, user=nischalpandey
+2025-06-14 18:33:43,455 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 18:33:43,459 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 18:33:46,887 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:33:46,887 - mysql.connector.authentication - INFO - plugin_name: mysql_native_password
+2025-06-14 18:33:46,900 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 18:33:46,901 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:33:46,901 - mysql.connector.authentication - INFO - plugin_name: caching_sha2_password
+2025-06-14 18:33:46,902 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 18:33:46,906 - init_database - ERROR - Database connection failed: 1049 (42000): Unknown database 'digibistro'
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 32, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 535, in _open_connection
+    self._do_auth(
+    ~~~~~~~~~~~~~^
+        self._user,
+        ^^^^^^^^^^^
+    ...<5 lines>...
+        self._conn_attrs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 279, in _do_auth
+    self._auth_switch_request(username, password)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 332, in _auth_switch_request
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database 'digibistro'
+2025-06-14 18:33:46,910 - init_database - ERROR - Attempted connection with: host=localhost, user=root
+2025-06-14 18:33:46,936 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 18:33:46,936 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 18:33:46,938 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:33:47,344 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:33:47,345 - mysql.connector.authentication - INFO - plugin_name: mysql_native_password
+2025-06-14 18:33:47,347 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 18:33:47,348 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:33:47,348 - mysql.connector.authentication - INFO - plugin_name: caching_sha2_password
+2025-06-14 18:33:47,349 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 18:33:47,352 - init_database - ERROR - Database connection failed: 1049 (42000): Unknown database 'digibistro'
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\gourmet-bistro - Copy\init_database.py", line 32, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\pooling.py", line 287, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 137, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 1108, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 535, in _open_connection
+    self._do_auth(
+    ~~~~~~~~~~~~~^
+        self._user,
+        ^^^^^^^^^^^
+    ...<5 lines>...
+        self._conn_attrs,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 279, in _do_auth
+    self._auth_switch_request(username, password)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 332, in _auth_switch_request
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1049 (42000): Unknown database 'digibistro'
+2025-06-14 18:33:47,355 - init_database - ERROR - Attempted connection with: host=localhost, user=root
+2025-06-14 18:33:47,372 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 18:33:47,375 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 18:34:12,865 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:34:12,866 - mysql.connector.authentication - INFO - plugin_name: mysql_native_password
+2025-06-14 18:34:12,868 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 18:34:12,868 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:34:12,868 - mysql.connector.authentication - INFO - plugin_name: caching_sha2_password
+2025-06-14 18:34:12,869 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 18:34:12,872 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:34:13,016 - init_database - INFO - Tables created/verified successfully
+2025-06-14 18:34:13,041 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 18:34:13,041 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 18:34:13,043 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 18:34:13,471 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:34:13,493 - mysql.connector.authentication - INFO - plugin_name: mysql_native_password
+2025-06-14 18:34:13,495 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 18:34:13,495 - mysql.connector.authentication - INFO - package: mysql.connector.plugins
+2025-06-14 18:34:13,496 - mysql.connector.authentication - INFO - plugin_name: caching_sha2_password
+2025-06-14 18:34:13,496 - mysql.connector.authentication - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 18:34:13,498 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:34:13,511 - init_database - INFO - Tables created/verified successfully
+2025-06-14 18:34:13,528 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 18:34:13,532 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 18:34:27,701 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:27] "GET / HTTP/1.1" 200 -
+2025-06-14 18:34:28,074 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/styles.css HTTP/1.1" 200 -
+2025-06-14 18:34:28,103 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/chowmein.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,122 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/pasta.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,145 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/samosa.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,154 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/burger.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,175 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/tea.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,207 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/momo.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,216 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/coffee.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,275 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "GET /static/hero.jpg HTTP/1.1" 200 -
+2025-06-14 18:34:28,481 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-14 18:34:30,270 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:30] "GET /auth/login HTTP/1.1" 200 -
+2025-06-14 18:34:30,303 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 18:34:32,084 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:32] "GET /auth/register HTTP/1.1" 200 -
+2025-06-14 18:34:32,108 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 18:34:58,202 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:34:58,258 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:34:58,430 - init_database - INFO - User nischalp_ created with ID: 1
+2025-06-14 18:34:58,434 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:58] "[32mPOST /auth/register HTTP/1.1[0m" 302 -
+2025-06-14 18:34:58,440 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:58] "GET /auth/login HTTP/1.1" 200 -
+2025-06-14 18:34:58,467 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:34:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,449 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:35:05,601 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[32mPOST /auth/login HTTP/1.1[0m" 302 -
+2025-06-14 18:35:05,655 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:35:05,658 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-14 18:35:05,694 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,696 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,702 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,705 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,709 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,711 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,716 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:05,717 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "GET /static/script.js HTTP/1.1" 200 -
+2025-06-14 18:35:05,726 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:05] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-14 18:35:11,955 - __main__ - INFO - Menu items saved to session: {'Pasta': 1, 'Burger': 1, 'Momo': 1}
+2025-06-14 18:35:11,957 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:11] "[32mPOST /viewMenu.html HTTP/1.1[0m" 302 -
+2025-06-14 18:35:11,963 - __main__ - INFO - Calculating order - subtotal: 490.0
+2025-06-14 18:35:12,026 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:35:12,029 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:12] "GET /select-payment HTTP/1.1" 200 -
+2025-06-14 18:35:12,060 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 18:35:12,118 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:12] "GET /static/cash.png HTTP/1.1" 200 -
+2025-06-14 18:35:12,118 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:12] "GET /static/card.png HTTP/1.1" 200 -
+2025-06-14 18:35:21,770 - __main__ - INFO - Payment method selected: cash_on_delivery
+2025-06-14 18:35:21,772 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:21] "[32mPOST /select-payment HTTP/1.1[0m" 302 -
+2025-06-14 18:35:21,979 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:35:21,982 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:21] "GET /order-details HTTP/1.1" 200 -
+2025-06-14 18:35:22,009 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 18:35:46,606 - __main__ - INFO - Order details form submitted
+2025-06-14 18:35:46,607 - __main__ - INFO - Received order details - Name: Nischal Pandey, Phone: 9766305007, Address: Tilottama 08 , 4no
+2025-06-14 18:35:46,607 - __main__ - INFO - Order calculations - Subtotal: 490.0, Delivery: 10.0, Total: 500.0
+2025-06-14 18:35:46,608 - __main__ - INFO - Attempting to save order with code: P1XJ7U for user: 1
+2025-06-14 18:35:46,666 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:35:46,673 - init_database - INFO - Order record created with ID: 1
+2025-06-14 18:35:46,675 - init_database - INFO - Inserted item: Pasta (Qty: 1)
+2025-06-14 18:35:46,676 - init_database - INFO - Inserted item: Burger (Qty: 1)
+2025-06-14 18:35:46,677 - init_database - INFO - Inserted item: Momo (Qty: 1)
+2025-06-14 18:35:46,683 - init_database - INFO - Order 1 committed successfully
+2025-06-14 18:35:46,686 - __main__ - INFO - Order saved successfully with ID: 1
+2025-06-14 18:35:46,740 - init_database - INFO - Successfully connected to MySQL database
+2025-06-14 18:35:46,743 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:46] "POST /order-details HTTP/1.1" 200 -
+2025-06-14 18:35:46,760 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 18:35:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-14 19:06:19,994 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on 'nischalpandey07.mysql.pythonanywhere-services.com:3306' (10060 A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 509, in open_connection
+    self.sock.connect(sockaddr)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\digibistro\init_database.py", line 41, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\__init__.py", line 179, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 95, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 716, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 206, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 511, in open_connection
+    raise errors.InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err)))
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on 'nischalpandey07.mysql.pythonanywhere-services.com:3306' (10060 A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)
+2025-06-14 19:06:19,999 - init_database - ERROR - Attempted connection with: host=nischalpandey07.mysql.pythonanywhere-services.com, user=nischalpandey07
+2025-06-14 19:06:20,057 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 19:06:20,058 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 19:06:20,066 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 19:06:41,521 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on 'nischalpandey07.mysql.pythonanywhere-services.com:3306' (10060 A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 509, in open_connection
+    self.sock.connect(sockaddr)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\digibistro\init_database.py", line 41, in get_db_connection
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\__init__.py", line 179, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 95, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 716, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 206, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 511, in open_connection
+    raise errors.InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err)))
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on 'nischalpandey07.mysql.pythonanywhere-services.com:3306' (10060 A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)
+2025-06-14 19:06:41,525 - init_database - ERROR - Attempted connection with: host=nischalpandey07.mysql.pythonanywhere-services.com, user=nischalpandey07
+2025-06-14 19:06:41,556 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 19:06:41,564 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 19:06:41,626 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET / HTTP/1.1" 200 -
+2025-06-14 19:06:41,766 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/pasta.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,777 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/burger.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,791 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/styles.css HTTP/1.1" 200 -
+2025-06-14 19:06:41,799 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/coffee.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,800 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/tea.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,805 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/momo.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,818 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/chowmein.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,882 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/samosa.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,941 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "GET /static/hero.jpg HTTP/1.1" 200 -
+2025-06-14 19:06:41,976 - werkzeug - INFO - 192.168.10.70 - - [14/Jun/2025 19:06:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-14 19:06:45,809 - werkzeug - INFO -  * Detected change in 'c:\\Users\\nisch\\Nischal\\digibistro\\init_database.py', reloading
+2025-06-14 19:06:45,887 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 19:07:07,521 - init_database - ERROR - Database connection failed: 2003: Can't connect to MySQL server on 'nischalpandey07.mysql.pythonanywhere-services.com:3306' (10060 A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)
+Traceback (most recent call last):
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 509, in open_connection
+    self.sock.connect(sockaddr)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\digibistro\init_database.py", line 41, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\__init__.py", line 179, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 95, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 716, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 206, in _open_connection
+    self._socket.open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\network.py", line 511, in open_connection
+    raise errors.InterfaceError(
+        errno=2003, values=(self.get_address(), _strioerror(err)))
+mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on 'nischalpandey07.mysql.pythonanywhere-services.com:3306' (10060 A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)
+2025-06-14 19:07:07,528 - init_database - ERROR - Attempted connection with: host=nischalpandey07.mysql.pythonanywhere-services.com, user=nischalpandey07
+2025-06-14 19:07:07,554 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 19:07:07,564 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 20:26:45,576 - init_database - ERROR - Database connection failed: Authentication plugin 'caching_sha2_password' is not supported
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\digibistro\init_database.py", line 24, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\__init__.py", line 179, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 95, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 716, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 208, in _open_connection
+    self._do_auth(self._user, self._password,
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  self._database, self._client_flags, self._charset_id,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  self._ssl)
+                  ^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 144, in _do_auth
+    self._auth_switch_request(username, password)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 167, in _auth_switch_request
+    auth = get_auth_plugin(new_auth_plugin)(
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\authentication.py", line 190, in get_auth_plugin
+    raise errors.NotSupportedError(
+        "Authentication plugin '{0}' is not supported".format(plugin_name))
+mysql.connector.errors.NotSupportedError: Authentication plugin 'caching_sha2_password' is not supported
+2025-06-14 20:26:45,640 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 20:26:45,641 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 20:26:45,650 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 20:26:46,058 - init_database - ERROR - Database connection failed: Authentication plugin 'caching_sha2_password' is not supported
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\digibistro\init_database.py", line 24, in get_db_connection
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST', 'localhost'),
+    ...<4 lines>...
+        auth_plugin='mysql_native_password'
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\__init__.py", line 179, in connect
+    return MySQLConnection(*args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 95, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\abstracts.py", line 716, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 208, in _open_connection
+    self._do_auth(self._user, self._password,
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  self._database, self._client_flags, self._charset_id,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  self._ssl)
+                  ^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 144, in _do_auth
+    self._auth_switch_request(username, password)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 167, in _auth_switch_request
+    auth = get_auth_plugin(new_auth_plugin)(
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\authentication.py", line 190, in get_auth_plugin
+    raise errors.NotSupportedError(
+        "Authentication plugin '{0}' is not supported".format(plugin_name))
+mysql.connector.errors.NotSupportedError: Authentication plugin 'caching_sha2_password' is not supported
+2025-06-14 20:26:46,111 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 20:26:46,152 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 20:28:06,156 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:06,156 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-14 20:28:06,171 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 20:28:06,172 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:06,172 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-14 20:28:06,173 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 20:28:06,247 - init_database - INFO - Tables created/verified successfully
+2025-06-14 20:28:06,281 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 20:28:06,283 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 20:28:06,285 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 20:28:06,757 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:06,758 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-14 20:28:06,759 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 20:28:06,760 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:06,760 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-14 20:28:06,760 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 20:28:06,777 - init_database - INFO - Tables created/verified successfully
+2025-06-14 20:28:06,795 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 20:28:06,799 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-14 20:28:17,204 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:17,205 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-14 20:28:17,206 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 20:28:17,206 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:17,207 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-14 20:28:17,207 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 20:28:17,229 - init_database - INFO - Tables created/verified successfully
+2025-06-14 20:28:17,256 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-14 20:28:17,256 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-14 20:28:17,258 - werkzeug - INFO -  * Restarting with stat
+2025-06-14 20:28:17,706 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:17,707 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-14 20:28:17,708 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-14 20:28:17,708 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-14 20:28:17,709 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-14 20:28:17,709 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-14 20:28:17,719 - init_database - INFO - Tables created/verified successfully
+2025-06-14 20:28:17,738 - werkzeug - WARNING -  * Debugger is active!
+2025-06-14 20:28:17,742 - werkzeug - INFO -  * Debugger PIN: 102-285-981
