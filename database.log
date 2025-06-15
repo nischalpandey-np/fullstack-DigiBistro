@@ -953,3 +953,109 @@ mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'status' i
 2025-06-15 20:55:50,275 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
 2025-06-15 20:55:50,284 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
 2025-06-15 20:55:50,286 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:00,567 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:58:00,568 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-15 20:58:00,570 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:58:00,573 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:58:00,573 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-15 20:58:00,574 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-15 20:58:00,618 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:00,858 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:58:00,925 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:00,968 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:58:01,011 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-15 20:58:01,011 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-15 20:58:01,014 - werkzeug - INFO -  * Restarting with stat
+2025-06-15 20:58:01,716 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:58:01,717 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-15 20:58:01,718 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:58:01,719 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:58:01,719 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-15 20:58:01,719 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-15 20:58:01,721 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:01,730 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:58:01,796 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:01,805 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:58:01,816 - werkzeug - WARNING -  * Debugger is active!
+2025-06-15 20:58:01,823 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-15 20:58:04,971 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:04,992 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:04] "GET / HTTP/1.1" 200 -
+2025-06-15 20:58:05,669 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/coffee.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,686 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/styles.css HTTP/1.1" 200 -
+2025-06-15 20:58:05,687 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/chowmein.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,700 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/samosa.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,719 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/pasta.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,742 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/burger.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,743 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/hero.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,754 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/tea.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:05,770 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:05] "GET /static/momo.jpg HTTP/1.1" 200 -
+2025-06-15 20:58:07,391 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:07,397 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:58:07,436 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,465 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "GET /static/script.js HTTP/1.1" 200 -
+2025-06-15 20:58:07,468 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,469 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,475 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,476 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,477 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,484 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:07,503 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:07] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,248 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[32mGET /auth/logout HTTP/1.1[0m" 302 -
+2025-06-15 20:58:11,302 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "GET /index.html HTTP/1.1" 200 -
+2025-06-15 20:58:11,450 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,457 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,464 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,471 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,473 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,474 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,475 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:11,477 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:11] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:58:14,472 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:14] "GET /auth/login HTTP/1.1" 200 -
+2025-06-15 20:58:14,514 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:58:24,085 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:24,094 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:24] "POST /auth/login HTTP/1.1" 200 -
+2025-06-15 20:58:24,128 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:58:26,021 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:26] "GET /auth/register HTTP/1.1" 200 -
+2025-06-15 20:58:26,054 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:58:49,866 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:50,149 - init_database - INFO - Database connection established successfully
+2025-06-15 20:58:50,189 - init_database - INFO - User nischalp_ created with ID: 1
+2025-06-15 20:58:50,191 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:50] "[32mPOST /auth/register HTTP/1.1[0m" 302 -
+2025-06-15 20:58:50,197 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:50] "GET /auth/login HTTP/1.1" 200 -
+2025-06-15 20:58:50,235 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:58:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:59:01,810 - init_database - INFO - Database connection established successfully
+2025-06-15 20:59:02,027 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[32mPOST /auth/login HTTP/1.1[0m" 302 -
+2025-06-15 20:59:02,116 - init_database - INFO - Database connection established successfully
+2025-06-15 20:59:02,121 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:59:02,159 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,176 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,179 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,181 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,181 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,182 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,188 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,195 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:02,199 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:02] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:59:09,488 - __main__ - INFO - Menu items saved to session: {'Pasta': 1, 'Momo': 1}
+2025-06-15 20:59:09,491 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:09] "[32mPOST /viewMenu.html HTTP/1.1[0m" 302 -
+2025-06-15 20:59:09,498 - __main__ - INFO - Calculating order - subtotal: 270.0
+2025-06-15 20:59:09,626 - init_database - INFO - Database connection established successfully
+2025-06-15 20:59:09,632 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:09] "GET /select-payment HTTP/1.1" 200 -
+2025-06-15 20:59:09,726 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:59:09,732 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:09] "GET /static/card.png HTTP/1.1" 200 -
+2025-06-15 20:59:09,735 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:09] "GET /static/cash.png HTTP/1.1" 200 -
+2025-06-15 20:59:14,179 - __main__ - INFO - Payment method selected: cash_on_delivery
+2025-06-15 20:59:14,182 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:14] "[32mPOST /select-payment HTTP/1.1[0m" 302 -
+2025-06-15 20:59:14,318 - init_database - INFO - Database connection established successfully
+2025-06-15 20:59:14,324 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:14] "GET /order-details HTTP/1.1" 200 -
+2025-06-15 20:59:14,370 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:59:34,538 - __main__ - INFO - Order details form submitted
+2025-06-15 20:59:34,635 - init_database - INFO - Database connection established successfully
+2025-06-15 20:59:34,663 - init_database - INFO - Order record created with ID: 1
+2025-06-15 20:59:34,677 - init_database - INFO - Order 1 committed successfully
+2025-06-15 20:59:34,752 - init_database - INFO - Database connection established successfully
+2025-06-15 20:59:34,757 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:34] "POST /order-details HTTP/1.1" 200 -
+2025-06-15 20:59:34,779 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:59:34] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
