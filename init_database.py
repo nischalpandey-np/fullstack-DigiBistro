@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import logging
 from werkzeug.security import generate_password_hash, check_password_hash
 from typing import Optional, Dict, Any, Union
+import time
 
 load_dotenv()
 
@@ -19,20 +20,29 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def get_db_connection():
-    """Create and return a new database connection"""
-    try:
-        conn = mysql.connector.connect(
-            host=os.getenv('DB_HOST', 'localhost'),
-            user=os.getenv('DB_USER', 'root'),
-            password=os.getenv('DB_PASSWORD', ''),
-            database=os.getenv('DB_NAME', 'digibistro'),
-            port=os.getenv('DB_PORT', '3306'),
-            auth_plugin='mysql_native_password'
-        )
-        return conn
-    except mysql.connector.Error as err:
-        logger.error(f"Database connection failed: {err}", exc_info=True)
-        return None
+    """Create and return a new database connection with retry logic"""
+    max_retries = 3
+    retry_delay = 1  # seconds
+    
+    for attempt in range(max_retries):
+        try:
+            conn = mysql.connector.connect(
+                host=os.getenv('DB_HOST', 'localhost'),
+                user=os.getenv('DB_USER', 'root'),
+                password=os.getenv('DB_PASSWORD', ''),
+                database=os.getenv('DB_NAME', 'digibistro'),
+                port=os.getenv('DB_PORT', '3306'),
+                auth_plugin='mysql_native_password',
+                connect_timeout=5
+            )
+            logger.info("Database connection established successfully")
+            return conn
+        except mysql.connector.Error as err:
+            logger.error(f"Database connection attempt {attempt + 1} failed: {err}")
+            if attempt == max_retries - 1:
+                raise
+            time.sleep(retry_delay)
+    return None
 
 def create_tables() -> bool:
     """Create database tables with proper constraints and indexes"""
@@ -139,40 +149,75 @@ def save_order_to_db(
     delivery_fee: float = 0,
     status: str = 'pending'
 ) -> Optional[int]:
-    """Save a complete order with items to the database"""
+    """Save a complete order with items to the database with transaction"""
+    conn = None
     try:
         conn = get_db_connection()
+        if not conn:
+            logger.error("Failed to establish database connection")
+            return None
+            
+        cursor = conn.cursor()
+        
+        # Start transaction
+        conn.start_transaction()
+        
+        # Insert order header
+        cursor.execute('''INSERT INTO orders 
+                      (customer_name, phone_number, customer_address, total_price, 
+                       user_id, payment_method, order_code, delivery_fee, status)
+                      VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)''',
+                   (customer_name, phone_number, customer_address, total_price,
+                    user_id, payment_method, order_code, delivery_fee, status))
+        
+        order_id = cursor.lastrowid
+        if not order_id:
+            raise Exception("Failed to get order ID after insertion")
+        
+        logger.info(f"Order record created with ID: {order_id}")
+        
+        # Insert order items
+        items = []
+        for item, details in order_details.items():
+            if not isinstance(details, dict):
+                logger.error(f"Invalid order details format for item {item}")
+                raise ValueError(f"Invalid order details format for item {item}")
+                
+            quantity = details.get('quantity', 0)
+            item_total = details.get('item_total', 0)
+            
+            if quantity <= 0:
+                logger.warning(f"Invalid quantity {quantity} for item {item}")
+                continue
+                
+            items.append((order_id, item, quantity, item_total))
+        
+        if not items:
+            raise ValueError("No valid items to insert")
+        
+        cursor.executemany('''INSERT INTO order_items 
+                           (order_id, item_name, quantity, item_total)
+                           VALUES (%s, %s, %s, %s)''', items)
+        
+        conn.commit()
+        logger.info(f"Order {order_id} committed successfully")
+        return order_id
+        
+    except mysql.connector.IntegrityError as ie:
+        logger.error(f"Integrity error saving order: {ie}")
         if conn:
-            cursor = conn.cursor()
-            
-            # Insert order header
-            cursor.execute('''INSERT INTO orders 
-                          (customer_name, phone_number, customer_address, total_price, 
-                           user_id, payment_method, order_code, delivery_fee, status)
-                          VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)''',
-                       (customer_name, phone_number, customer_address, total_price,
-                        user_id, payment_method, order_code, delivery_fee, status))
-            
-            order_id = cursor.lastrowid
-            logger.info(f"Order record created with ID: {order_id}")
-            
-            # Insert order items
-            items = []
-            for item, details in order_details.items():
-                items.append((order_id, item, details['quantity'], details['item_total']))
-            
-            cursor.executemany('''INSERT INTO order_items 
-                               (order_id, item_name, quantity, item_total)
-                               VALUES (%s, %s, %s, %s)''', items)
-            
-            conn.commit()
-            cursor.close()
-            conn.close()
-            logger.info(f"Order {order_id} committed successfully")
-            return order_id
+            conn.rollback()
+        return None
     except Exception as e:
         logger.error(f"Error saving order: {str(e)}", exc_info=True)
+        if conn:
+            conn.rollback()
         return None
+    finally:
+        if conn:
+            if conn.is_connected():
+                cursor.close()
+                conn.close()
 
 def test_order_insertion() -> str:
     """Test order insertion functionality"""

@@ -636,3 +636,320 @@ mysql.connector.errors.NotSupportedError: Authentication plugin 'caching_sha2_pa
 2025-06-14 20:28:17,719 - init_database - INFO - Tables created/verified successfully
 2025-06-14 20:28:17,738 - werkzeug - WARNING -  * Debugger is active!
 2025-06-14 20:28:17,742 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-15 20:29:36,352 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:29:36,353 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-15 20:29:36,381 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:29:36,390 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:29:36,391 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-15 20:29:36,391 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-15 20:29:36,815 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:29:37,406 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.10.70:5000
+2025-06-15 20:29:37,406 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-15 20:29:37,428 - werkzeug - INFO -  * Restarting with stat
+2025-06-15 20:29:38,893 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:29:38,893 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-15 20:29:38,895 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:29:38,897 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:29:38,897 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-15 20:29:38,897 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-15 20:29:38,926 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:29:38,976 - werkzeug - WARNING -  * Debugger is active!
+2025-06-15 20:29:38,985 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-15 20:30:17,847 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:17] "GET / HTTP/1.1" 200 -
+2025-06-15 20:30:18,370 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/tea.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,382 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/styles.css HTTP/1.1" 200 -
+2025-06-15 20:30:18,393 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/chowmein.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,416 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/burger.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,430 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/momo.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,437 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/samosa.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,442 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/coffee.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,451 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/pasta.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,559 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "GET /static/hero.jpg HTTP/1.1" 200 -
+2025-06-15 20:30:18,778 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-15 20:30:23,677 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:23] "GET /auth/login HTTP/1.1" 200 -
+2025-06-15 20:30:23,744 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:23] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:30:25,338 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:25] "GET /auth/register HTTP/1.1" 200 -
+2025-06-15 20:30:25,431 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:30:48,651 - init_database - INFO - User user_name created with ID: 2
+2025-06-15 20:30:48,657 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:48] "[32mPOST /auth/register HTTP/1.1[0m" 302 -
+2025-06-15 20:30:48,675 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:48] "GET /auth/login HTTP/1.1" 200 -
+2025-06-15 20:30:48,713 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:30:54,992 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:54] "[32mPOST /auth/login HTTP/1.1[0m" 302 -
+2025-06-15 20:30:55,071 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:30:55,116 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,131 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,132 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,132 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,136 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,137 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,140 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "GET /static/script.js HTTP/1.1" 200 -
+2025-06-15 20:30:55,146 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:30:55,148 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:30:55] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:00,564 - __main__ - INFO - Menu items saved to session: {'Pasta': 1, 'Samosa': 1, 'Momo': 1}
+2025-06-15 20:31:00,565 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:00] "[32mPOST /viewMenu.html HTTP/1.1[0m" 302 -
+2025-06-15 20:31:00,572 - __main__ - INFO - Calculating order - subtotal: 305.0
+2025-06-15 20:31:00,658 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:00] "GET /select-payment HTTP/1.1" 200 -
+2025-06-15 20:31:00,736 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:00] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:31:00,738 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:00] "GET /static/card.png HTTP/1.1" 200 -
+2025-06-15 20:31:00,742 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:00] "GET /static/cash.png HTTP/1.1" 200 -
+2025-06-15 20:31:06,980 - __main__ - INFO - Payment method selected: cash_on_delivery
+2025-06-15 20:31:06,981 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:06] "[32mPOST /select-payment HTTP/1.1[0m" 302 -
+2025-06-15 20:31:07,062 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:07] "GET /order-details HTTP/1.1" 200 -
+2025-06-15 20:31:07,091 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,080 - __main__ - INFO - Order details form submitted
+2025-06-15 20:31:18,081 - __main__ - INFO - Received order details - Name: username, Phone: 98989898, Address: tilotaama
+2025-06-15 20:31:18,082 - __main__ - INFO - Order calculations - Subtotal: 305.0, Delivery: 10.0, Total: 315.0
+2025-06-15 20:31:18,087 - __main__ - INFO - Attempting to save order with code: VQG4U4 for user: 2
+2025-06-15 20:31:18,170 - init_database - ERROR - Error saving order: 1054 (42S22): Unknown column 'status' in 'field list'
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\fullstack-DigiBistro\fullstack-DigiBistro\init_database.py", line 149, in save_order_to_db
+    cursor.execute('''INSERT INTO orders
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+                  (customer_name, phone_number, customer_address, total_price,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+               (customer_name, phone_number, customer_address, total_price,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                user_id, payment_method, order_code, delivery_fee, status))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'status' in 'field list'
+2025-06-15 20:31:18,457 - __main__ - ERROR - Order save returned None
+2025-06-15 20:31:18,458 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[32mPOST /order-details HTTP/1.1[0m" 302 -
+2025-06-15 20:31:18,556 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:31:18,598 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,631 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,631 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,639 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,645 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,654 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,657 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,659 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:31:18,659 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:31:18] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,126 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[32mGET /auth/logout HTTP/1.1[0m" 302 -
+2025-06-15 20:53:26,283 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "GET /index.html HTTP/1.1" 200 -
+2025-06-15 20:53:26,765 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,773 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,775 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,778 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,784 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,785 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,790 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,790 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:26,826 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:26] "[36mGET /static/hero.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:53:28,369 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:28] "[32mGET /viewMenu.html HTTP/1.1[0m" 302 -
+2025-06-15 20:53:28,387 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:28] "GET /auth/login?next=http%3A%2F%2F127.0.0.1%3A5000%2FviewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:53:28,439 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:53:34,864 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:34] "GET /auth/register HTTP/1.1" 200 -
+2025-06-15 20:53:34,908 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:34] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:53:59,360 - init_database - INFO - User manishan_ created with ID: 3
+2025-06-15 20:53:59,363 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:59] "[32mPOST /auth/register HTTP/1.1[0m" 302 -
+2025-06-15 20:53:59,383 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:59] "GET /auth/login HTTP/1.1" 200 -
+2025-06-15 20:53:59,431 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:53:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,160 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[32mPOST /auth/login HTTP/1.1[0m" 302 -
+2025-06-15 20:54:06,366 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:54:06,432 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,447 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,450 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,451 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,452 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,452 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,455 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,460 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:06,462 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:06] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:12,571 - __main__ - INFO - Menu items saved to session: {'Pasta': 1, 'Samosa': 1}
+2025-06-15 20:54:12,572 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:12] "[32mPOST /viewMenu.html HTTP/1.1[0m" 302 -
+2025-06-15 20:54:12,579 - __main__ - INFO - Calculating order - subtotal: 155.0
+2025-06-15 20:54:12,675 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:12] "GET /select-payment HTTP/1.1" 200 -
+2025-06-15 20:54:12,768 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:54:12,792 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:12] "[36mGET /static/card.png HTTP/1.1[0m" 304 -
+2025-06-15 20:54:12,799 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:12] "[36mGET /static/cash.png HTTP/1.1[0m" 304 -
+2025-06-15 20:54:15,040 - __main__ - INFO - Payment method selected: cash_on_delivery
+2025-06-15 20:54:15,041 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:15] "[32mPOST /select-payment HTTP/1.1[0m" 302 -
+2025-06-15 20:54:15,124 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:15] "GET /order-details HTTP/1.1" 200 -
+2025-06-15 20:54:15,158 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:15] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:54:28,957 - __main__ - INFO - Order details form submitted
+2025-06-15 20:54:28,957 - __main__ - INFO - Received order details - Name: Manisha Niure, Phone: 9766267703, Address: tilottama
+2025-06-15 20:54:28,958 - __main__ - INFO - Order calculations - Subtotal: 155.0, Delivery: 10.0, Total: 165.0
+2025-06-15 20:54:28,960 - __main__ - INFO - Attempting to save order with code: BNLY3I for user: 3
+2025-06-15 20:54:29,066 - init_database - ERROR - Error saving order: 1054 (42S22): Unknown column 'status' in 'field list'
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\fullstack-DigiBistro\fullstack-DigiBistro\init_database.py", line 149, in save_order_to_db
+    cursor.execute('''INSERT INTO orders
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+                  (customer_name, phone_number, customer_address, total_price,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+               (customer_name, phone_number, customer_address, total_price,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                user_id, payment_method, order_code, delivery_fee, status))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'status' in 'field list'
+2025-06-15 20:54:29,080 - __main__ - ERROR - Order save returned None
+2025-06-15 20:54:29,081 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[32mPOST /order-details HTTP/1.1[0m" 302 -
+2025-06-15 20:54:29,166 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:54:29,209 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,229 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,230 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,233 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,233 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,236 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,243 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,251 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:29,252 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:54:29] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:54:41,242 - werkzeug - INFO -  * Detected change in 'c:\\Users\\nisch\\Nischal\\fullstack-DigiBistro\\fullstack-DigiBistro\\app.py', reloading
+2025-06-15 20:54:42,367 - werkzeug - INFO -  * Restarting with stat
+2025-06-15 20:54:46,472 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:54:46,473 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-15 20:54:46,475 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:54:46,479 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:54:46,480 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-15 20:54:46,480 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-15 20:54:46,589 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:54:46,698 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:54:46,729 - werkzeug - WARNING -  * Debugger is active!
+2025-06-15 20:54:46,740 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-15 20:55:12,277 - werkzeug - INFO -  * Detected change in 'c:\\Users\\nisch\\Nischal\\fullstack-DigiBistro\\fullstack-DigiBistro\\init_database.py', reloading
+2025-06-15 20:55:12,648 - werkzeug - INFO -  * Restarting with stat
+2025-06-15 20:55:14,158 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:55:14,158 - mysql.connector - INFO - plugin_name: mysql_native_password
+2025-06-15 20:55:14,161 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:55:14,164 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-06-15 20:55:14,165 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-06-15 20:55:14,166 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-15 20:55:14,198 - init_database - INFO - Database connection established successfully
+2025-06-15 20:55:14,255 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:55:14,368 - init_database - INFO - Database connection established successfully
+2025-06-15 20:55:14,390 - init_database - INFO - Tables created/verified successfully
+2025-06-15 20:55:14,415 - werkzeug - WARNING -  * Debugger is active!
+2025-06-15 20:55:14,426 - werkzeug - INFO -  * Debugger PIN: 102-285-981
+2025-06-15 20:55:33,376 - __main__ - INFO - Menu items saved to session: {'Pasta': 1}
+2025-06-15 20:55:33,386 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:33] "[32mPOST /viewMenu.html HTTP/1.1[0m" 302 -
+2025-06-15 20:55:33,412 - __main__ - INFO - Calculating order - subtotal: 120.0
+2025-06-15 20:55:33,574 - init_database - INFO - Database connection established successfully
+2025-06-15 20:55:33,608 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:33] "GET /select-payment HTTP/1.1" 200 -
+2025-06-15 20:55:33,997 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:33] "[36mGET /static/cash.png HTTP/1.1[0m" 304 -
+2025-06-15 20:55:34,042 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:34] "[36mGET /static/card.png HTTP/1.1[0m" 304 -
+2025-06-15 20:55:34,051 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:34] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:55:35,374 - __main__ - INFO - Payment method selected: cash_on_delivery
+2025-06-15 20:55:35,375 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:35] "[32mPOST /select-payment HTTP/1.1[0m" 302 -
+2025-06-15 20:55:35,461 - init_database - INFO - Database connection established successfully
+2025-06-15 20:55:35,467 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:35] "GET /order-details HTTP/1.1" 200 -
+2025-06-15 20:55:35,504 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:55:49,296 - __main__ - INFO - Order details form submitted
+2025-06-15 20:55:49,460 - init_database - INFO - Database connection established successfully
+2025-06-15 20:55:50,082 - init_database - ERROR - Error saving order: 1054 (42S22): Unknown column 'status' in 'field list'
+Traceback (most recent call last):
+  File "c:\Users\nisch\Nischal\fullstack-DigiBistro\fullstack-DigiBistro\init_database.py", line 166, in save_order_to_db
+    cursor.execute('''INSERT INTO orders
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+                  (customer_name, phone_number, customer_address, total_price,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+               (customer_name, phone_number, customer_address, total_price,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                user_id, payment_method, order_code, delivery_fee, status))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nisch\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'status' in 'field list'
+2025-06-15 20:55:50,100 - __main__ - ERROR - Order save returned None
+2025-06-15 20:55:50,102 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[32mPOST /order-details HTTP/1.1[0m" 302 -
+2025-06-15 20:55:50,184 - init_database - INFO - Database connection established successfully
+2025-06-15 20:55:50,189 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "GET /viewMenu.html HTTP/1.1" 200 -
+2025-06-15 20:55:50,253 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,254 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/pasta.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,255 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/momo.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,260 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/burger.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,266 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,270 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/coffee.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,275 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/tea.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,284 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/chowmein.jpg HTTP/1.1[0m" 304 -
+2025-06-15 20:55:50,286 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:55:50] "[36mGET /static/samosa.jpg HTTP/1.1[0m" 304 -

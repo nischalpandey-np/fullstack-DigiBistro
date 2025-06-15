@@ -1,13 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, flash, request, session
 import logging
 import json
-from init_database import save_order_to_db, get_db_connection, test_order_insertion
+from init_database import save_order_to_db, get_db_connection, test_order_insertion, create_tables
 from dotenv import load_dotenv
 import os
 from auth import auth_bp
 from functools import wraps
 import random
 import string
+import time
 
 load_dotenv()
 
@@ -15,6 +16,9 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
 
 app.register_blueprint(auth_bp, url_prefix='/auth')
+
+# Check if running on PythonAnywhere
+IS_PYTHONANYWHERE = 'PYTHONANYWHERE_DOMAIN' in os.environ
 
 # Configure logging
 logging.basicConfig(
@@ -154,45 +158,57 @@ def select_payment():
 def order_details():
     if request.method == 'POST':
         logger.info("Order details form submitted")
-        customer_name = request.form.get('customer-name', '').strip()
-        phone_number = request.form.get('phone-number', '').strip()
-        customer_address = request.form.get('customer-address', '').strip()
-        house_no = request.form.get('house-no', '').strip()
-        
-        logger.info(f"Received order details - Name: {customer_name}, Phone: {phone_number}, Address: {customer_address}")
-        
-        if not all([customer_name, phone_number, customer_address]):
-            flash("Please fill in all required fields.", "error")
-            logger.warning("Missing required fields in order form")
-            return redirect(url_for('order_details'))
-        
         try:
-            items = json.loads(session.get('items', '{}'))
+            # Validate form data
+            required_fields = ['customer-name', 'phone-number', 'customer-address']
+            if not all(field in request.form for field in required_fields):
+                missing = [f for f in required_fields if f not in request.form]
+                logger.error(f"Missing required fields: {missing}")
+                flash("Please fill in all required fields.", "error")
+                return redirect(url_for('order_details'))
+                
+            customer_name = request.form['customer-name'].strip()
+            phone_number = request.form['phone-number'].strip()
+            customer_address = request.form['customer-address'].strip()
+            house_no = request.form.get('house-no', '').strip()
+            
+            # Validate session data
+            if 'items' not in session:
+                logger.error("No items in session")
+                flash("Your order is empty. Please select items again.", "error")
+                return redirect(url_for('view_menu'))
+                
+            try:
+                items = json.loads(session['items'])
+                if not items:
+                    logger.error("Empty items in session")
+                    flash("Your order is empty. Please select items again.", "error")
+                    return redirect(url_for('view_menu'))
+            except json.JSONDecodeError as je:
+                logger.error(f"Invalid items in session: {je}")
+                flash("Invalid order data. Please try again.", "error")
+                return redirect(url_for('view_menu'))
+                
             payment_method = session.get('payment_method', 'cash_on_delivery')
             
-            if not items:
-                flash("Your order is empty. Please select items again.", "error")
-                logger.warning("Empty items in session during order processing")
-                return redirect(url_for('view_menu'))
-            
-            subtotal = sum(ITEM_PRICES[item] * qty for item, qty in items.items())
+            # Calculate totals
+            subtotal = sum(ITEM_PRICES.get(item, 0) * qty for item, qty in items.items())
             delivery_fee = DELIVERY_FEE if payment_method == 'cash_on_delivery' else 0
             total_price = subtotal + delivery_fee
             
-            logger.info(f"Order calculations - Subtotal: {subtotal}, Delivery: {delivery_fee}, Total: {total_price}")
-            
-            order_details = {}
-            for item_name, quantity in items.items():
-                order_details[item_name] = {
-                    'quantity': quantity,
-                    'item_total': ITEM_PRICES[item_name] * quantity
+            # Prepare order details
+            order_details = {
+                item: {
+                    'quantity': qty,
+                    'item_total': ITEM_PRICES.get(item, 0) * qty
                 }
+                for item, qty in items.items()
+            }
             
             order_code = generate_order_code()
             user_id = session.get('user_id')
             
-            logger.info(f"Attempting to save order with code: {order_code} for user: {user_id}")
-            
+            # Save order
             order_id = save_order_to_db(
                 customer_name=customer_name,
                 phone_number=phone_number,
@@ -206,12 +222,11 @@ def order_details():
             )
             
             if not order_id:
-                flash("Failed to save order. Please try again.", "error")
                 logger.error("Order save returned None")
+                flash("Failed to save order. Please try again.", "error")
                 return redirect(url_for('view_menu'))
             
-            logger.info(f"Order saved successfully with ID: {order_id}")
-            
+            # Clear session data
             session.pop('items', None)
             session.pop('payment_method', None)
             
@@ -226,7 +241,7 @@ def order_details():
                                payment_method=payment_method,
                                order_code=order_code,
                                delivery_fee=delivery_fee)
-        
+            
         except Exception as e:
             logger.error(f"Order processing error: {str(e)}", exc_info=True)
             flash(f"An error occurred: {str(e)}", "error")
@@ -275,4 +290,10 @@ def test_db():
     return "Failed to connect to database"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Initialize database tables
+    create_tables()
+    
+    if IS_PYTHONANYWHERE:
+        app.run()
+    else:
+        app.run(host='0.0.0.0', port=5000, debug=True)
