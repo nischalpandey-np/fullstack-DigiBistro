@@ -23,7 +23,7 @@ def get_db_connection():
     """Create and return a new database connection with retry logic"""
     max_retries = 3
     retry_delay = 1  # seconds
-    
+
     for attempt in range(max_retries):
         try:
             conn = mysql.connector.connect(
@@ -31,7 +31,7 @@ def get_db_connection():
                 user=os.getenv('DB_USER', 'root'),
                 password=os.getenv('DB_PASSWORD', ''),
                 database=os.getenv('DB_NAME', 'digibistro'),
-                port=os.getenv('DB_PORT', '3306'),
+                port=3306,
                 auth_plugin='mysql_native_password',
                 connect_timeout=5
             )
@@ -57,7 +57,7 @@ def create_tables() -> bool:
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )""",
-        
+
         """CREATE TABLE IF NOT EXISTS orders (
             order_id INT AUTO_INCREMENT PRIMARY KEY,
             customer_name VARCHAR(100) NOT NULL,
@@ -72,7 +72,7 @@ def create_tables() -> bool:
             status ENUM('pending', 'processing', 'completed', 'cancelled') DEFAULT 'pending',
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
         )""",
-        
+
         """CREATE TABLE IF NOT EXISTS order_items (
             id INT AUTO_INCREMENT PRIMARY KEY,
             order_id INT NOT NULL,
@@ -156,53 +156,53 @@ def save_order_to_db(
         if not conn:
             logger.error("Failed to establish database connection")
             return None
-            
+
         cursor = conn.cursor()
-        
+
         # Start transaction
         conn.start_transaction()
-        
+
         # Insert order header
-        cursor.execute('''INSERT INTO orders 
-                      (customer_name, phone_number, customer_address, total_price, 
+        cursor.execute('''INSERT INTO orders
+                      (customer_name, phone_number, customer_address, total_price,
                        user_id, payment_method, order_code, delivery_fee, status)
                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)''',
                    (customer_name, phone_number, customer_address, total_price,
                     user_id, payment_method, order_code, delivery_fee, status))
-        
+
         order_id = cursor.lastrowid
         if not order_id:
             raise Exception("Failed to get order ID after insertion")
-        
+
         logger.info(f"Order record created with ID: {order_id}")
-        
+
         # Insert order items
         items = []
         for item, details in order_details.items():
             if not isinstance(details, dict):
                 logger.error(f"Invalid order details format for item {item}")
                 raise ValueError(f"Invalid order details format for item {item}")
-                
+
             quantity = details.get('quantity', 0)
             item_total = details.get('item_total', 0)
-            
+
             if quantity <= 0:
                 logger.warning(f"Invalid quantity {quantity} for item {item}")
                 continue
-                
+
             items.append((order_id, item, quantity, item_total))
-        
+
         if not items:
             raise ValueError("No valid items to insert")
-        
-        cursor.executemany('''INSERT INTO order_items 
+
+        cursor.executemany('''INSERT INTO order_items
                            (order_id, item_name, quantity, item_total)
                            VALUES (%s, %s, %s, %s)''', items)
-        
+
         conn.commit()
         logger.info(f"Order {order_id} committed successfully")
         return order_id
-        
+
     except mysql.connector.IntegrityError as ie:
         logger.error(f"Integrity error saving order: {ie}")
         if conn:
@@ -233,7 +233,7 @@ def test_order_insertion() -> str:
             order_code="TEST01",
             delivery_fee=10.00
         )
-        
+
         if order_id:
             return f"Success - Order ID: {order_id}"
         return "Failed - Order ID not returned"
@@ -241,5 +241,5 @@ def test_order_insertion() -> str:
         return f"Error: {str(e)}"
 
 # Initialize tables when module is imported
-if __name__ != '__main__':
+if __name__ == '__main__':
     create_tables()

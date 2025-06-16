@@ -1,17 +1,18 @@
-/* Gourmet Bistro - Premium UI Design */
+/* Gourmet Bistro - Premium UI Design - Enhanced & Restored */
+
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* --- CSS Variables (Root) --- */
 :root {
     --primary-color: #ff6b6b;
     --primary-dark: #e05555;
     --secondary-color: #ffd700;
-    --secondary-dark: #e6c300;
     --background-dark: #1a1c20;
     --background-darker: #121416;
     --background-light: #2d2f36;
     --text-light: #f5f5f5;
-    --text-lighter: #ffffff;
     --text-muted: #b0b0b0;
-    --shadow-dark: rgba(0, 0, 0, 0.5);
-    --shadow-light: rgba(255, 255, 255, 0.1);
     --success-color: #4caf50;
     --error-color: #f44336;
     --font-body: 'Poppins', sans-serif;
@@ -20,13 +21,14 @@
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-xl: 16px;
-    --transition-fast: 0.15s ease;
-    --transition-normal: 0.3s ease;
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
-* {
+/* --- Base & Reset --- */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -38,31 +40,43 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--background-dark);
+    background-color: var(--background-dark);
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- Typography --- */
 h1, h2, h3 {
     font-family: var(--font-heading);
     color: var(--text-light);
     letter-spacing: 0.5px;
+    font-weight: 700;
 }
 
+/* --- Header --- */
 header {
-    background: var(--background-dark);
+    background-color: var(--background-dark);
     padding: 1.5rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px var(--shadow-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allows nav to wrap on smaller screens */
+    gap: 1rem; /* Space between logo and nav if they wrap */
 }
 
 header .logo {
@@ -75,6 +89,7 @@ header .logo {
 header nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -91,7 +106,7 @@ header nav ul li a:hover {
 }
 
 header nav ul li a.cta {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     padding: 0.5rem 1.5rem;
     border-radius: 25px;
     color: var(--text-light);
@@ -99,43 +114,44 @@ header nav ul li a.cta {
 }
 
 header nav ul li a.cta:hover {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: var(--background-dark);
+    transform: translateY(-2px);
 }
 
+/* --- Hero Section --- */
 .hero {
     position: relative;
-    height: 100vh;
     min-height: 600px;
+    height: 90vh; /* Better than 100vh to avoid mobile scroll issues */
     background: linear-gradient(135deg, rgba(26, 28, 32, 0.9), rgba(45, 47, 54, 0.8)), url('/static/hero.jpg') no-repeat center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid; /* Switched to grid for simpler centering */
+    place-items: center;
     text-align: center;
     overflow: hidden;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
     animation: fadeInUp 1.5s ease-out;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: clamp(2.8rem, 5vw + 1rem, 4rem); /* Fluid font size */
     color: var(--secondary-color);
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     margin-bottom: 1rem;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem); /* Fluid font size */
     color: var(--text-muted);
     margin-bottom: 2rem;
+    max-width: 60ch; /* Improves readability */
+    margin-inline: auto;
 }
 
 .hero-content a.cta {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     font-size: 1.2rem;
@@ -143,28 +159,31 @@ header nav ul li a.cta:hover {
     text-transform: uppercase;
     color: var(--text-light);
     text-decoration: none;
+    display: inline-block; /* Ensures proper padding and margin */
     transition: all var(--transition-normal);
 }
 
 .hero-content a.cta:hover {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: var(--background-dark);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
+/* --- Featured Items --- */
 .featured-items {
     padding: 4rem 2rem;
-    background: var(--background-light);
+    background-color: var(--background-light);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem; /* Added padding for smaller screens */
 }
 
 .featured-items h2 {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 4vw + 1rem, 3rem); /* Fluid font size */
     text-align: center;
     color: var(--secondary-color);
     margin-bottom: 3rem;
@@ -177,11 +196,12 @@ header nav ul li a.cta:hover {
 }
 
 .item-card {
-    background: var(--background-dark);
+    background-color: var(--background-dark);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: 0 5px 20px var(--shadow-dark);
-    transition: all var(--transition-normal);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    will-change: transform; /* Performance boost for animation */
 }
 
 .item-card:hover {
@@ -216,13 +236,14 @@ header nav ul li a.cta:hover {
     font-weight: 700;
     color: var(--primary-color);
     margin: 0.5rem 1rem;
+    display: block; /* Ensures consistent layout */
 }
 
 .add-to-cart {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     border: none;
     padding: 0.75rem 1.5rem;
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 1rem 1rem;
     border-radius: 25px;
     color: var(--text-light);
     font-weight: 600;
@@ -231,7 +252,7 @@ header nav ul li a.cta:hover {
 }
 
 .add-to-cart:hover {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: var(--background-dark);
     transform: scale(1.05);
 }
@@ -242,7 +263,7 @@ header nav ul li a.cta:hover {
     margin: 0.5rem 1rem 1rem;
     border: 2px solid var(--text-muted);
     border-radius: var(--radius-md);
-    background: var(--background-light);
+    background-color: var(--background-light);
     color: var(--text-light);
     font-size: 1rem;
     text-align: center;
@@ -254,7 +275,7 @@ header nav ul li a.cta:hover {
 }
 
 .order-btn {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     padding: 1.2rem 3rem;
     border: none;
     border-radius: 50px;
@@ -266,40 +287,42 @@ header nav ul li a.cta:hover {
 }
 
 .order-btn:hover {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: var(--background-dark);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
-.login-section {
+/* --- Login & Form Sections (All Original Classes Preserved) --- */
+.login-section, .order-form-section, .order-summary-section {
     padding: 4rem 2rem;
-    background: var(--background-light);
+    background-color: var(--background-light);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid; /* Use grid for centering */
+    place-items: center;
 }
 
-.login-container {
-    background: var(--background-dark);
+.login-container, .order-form-container, .order-summary-container {
+    background-color: var(--background-dark);
     padding: 3rem;
     border-radius: var(--radius-xl);
-    box-shadow: 0 10px 30px var(--shadow-dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 450px;
 }
 
-.login-container h2 {
+.login-container { max-width: 450px; }
+.order-form-container { max-width: 600px; }
+.order-summary-container { max-width: 800px; }
+
+
+.login-container h2, .order-form-container h2, .order-summary-container h2 {
     font-size: 2.5rem;
     color: var(--secondary-color);
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.form-field {
-    margin-bottom: 1.5rem;
-}
+.form-field { margin-bottom: 1.5rem; }
 
 .form-field label {
     display: block;
@@ -313,7 +336,7 @@ header nav ul li a.cta:hover {
     padding: 0.8rem;
     border: 2px solid var(--text-muted);
     border-radius: var(--radius-md);
-    background: var(--background-light);
+    background-color: var(--background-light);
     color: var(--text-light);
     font-size: 1rem;
     transition: border-color var(--transition-fast);
@@ -326,7 +349,7 @@ header nav ul li a.cta:hover {
 }
 
 .login-container button {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     padding: 1rem 2rem;
     border: none;
     border-radius: 25px;
@@ -339,7 +362,7 @@ header nav ul li a.cta:hover {
 }
 
 .login-container button:hover {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: var(--background-dark);
     transform: translateY(-3px);
 }
@@ -361,13 +384,12 @@ header nav ul li a.cta:hover {
     color: var(--primary-color);
 }
 
-.flash-messages {
-    margin-bottom: 1.5rem;
-}
+/* --- Flash Messages (Original Classes) --- */
+.flash-messages { margin-bottom: 1.5rem; }
 
 .flash-success {
     color: var(--success-color);
-    background: rgba(76, 175, 80, 0.1);
+    background-color: rgba(76, 175, 80, 0.1);
     padding: 0.8rem;
     border-radius: var(--radius-md);
     margin-bottom: 1rem;
@@ -376,38 +398,15 @@ header nav ul li a.cta:hover {
 
 .flash-error {
     color: var(--error-color);
-    background: rgba(244, 67, 54, 0.1);
+    background-color: rgba(244, 67, 54, 0.1);
     padding: 0.8rem;
     border-radius: var(--radius-md);
     margin-bottom: 1rem;
     border-left: 4px solid var(--error-color);
 }
 
-.order-form-section {
-    padding: 4rem 2rem;
-    background: var(--background-light);
-    min-height: 100vh;
-}
-
-.order-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--background-dark);
-    padding: 3rem;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 10px 30px var(--shadow-dark);
-}
-
-.order-form-container h2 {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-#selected-items {
-    margin-bottom: 2rem;
-}
+/* --- Order Form (Original Classes) --- */
+#selected-items { margin-bottom: 2rem; }
 
 #selected-items h3 {
     font-size: 1.8rem;
@@ -431,9 +430,8 @@ header nav ul li a.cta:hover {
     margin-top: 1rem;
 }
 
-.payment-options {
-    margin: 2rem 0;
-}
+/* --- Payment Options (Restored Feature) --- */
+.payment-options { margin: 2rem 0; }
 
 .payment-option {
     display: block;
@@ -447,12 +445,10 @@ header nav ul li a.cta:hover {
 
 .payment-option:hover {
     border-color: var(--secondary-color);
-    background: rgba(255, 215, 0, 0.05);
+    background-color: rgba(255, 215, 0, 0.05);
 }
 
-.payment-option input[type="radio"] {
-    margin-right: 1rem;
-}
+.payment-option input[type="radio"] { margin-right: 1rem; }
 
 .payment-option-content {
     display: flex;
@@ -467,7 +463,7 @@ header nav ul li a.cta:hover {
 
 .payment-notice {
     display: none;
-    background: rgba(255, 107, 107, 0.2);
+    background-color: rgba(255, 107, 107, 0.2);
     color: var(--primary-color);
     padding: 0.8rem;
     border-radius: var(--radius-md);
@@ -476,7 +472,7 @@ header nav ul li a.cta:hover {
 }
 
 .continue-btn {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--text-light);
     border: none;
     padding: 1rem;
@@ -489,32 +485,11 @@ header nav ul li a.cta:hover {
 }
 
 .continue-btn:hover {
-    background: var(--primary-dark);
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
 }
 
-.order-summary-section {
-    padding: 4rem 2rem;
-    background: var(--background-light);
-    min-height: 100vh;
-}
-
-.order-summary-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--background-dark);
-    padding: 3rem;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 10px 30px var(--shadow-dark);
-}
-
-.order-summary-container h2 {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
+/* --- Order Summary (Original Classes) --- */
 .order-summary-container p {
     font-size: 1.2rem;
     color: var(--text-muted);
@@ -541,7 +516,7 @@ header nav ul li a.cta:hover {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--secondary-color);
-    background: rgba(255, 215, 0, 0.1);
+    background-color: rgba(255, 215, 0, 0.1);
     padding: 1rem;
     border-radius: var(--radius-md);
     text-align: center;
@@ -555,12 +530,13 @@ header nav ul li a.cta:hover {
     text-align: center;
     margin-top: 2rem;
     padding: 1rem;
-    background: rgba(255, 215, 0, 0.1);
+    background-color: rgba(255, 215, 0, 0.1);
     border-radius: var(--radius-md);
 }
 
+/* --- Footer --- */
 .footer {
-    background: var(--background-darker);
+    background-color: var(--background-darker);
     padding: 2rem;
     text-align: center;
     color: var(--text-muted);
@@ -568,25 +544,40 @@ header nav ul li a.cta:hover {
     margin-top: auto;
 }
 
+/* --- Animations --- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Media Queries for Mobile --- */
 @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1rem; }
-    .hero-content a.cta { padding: 0.8rem 2rem; font-size: 1rem; }
-    header .logo { font-size: 1.5rem; }
-    header nav ul { gap: 1rem; }
-    .featured-items h2 { font-size: 2rem; }
-    .item-card h3 { font-size: 1.5rem; }
+    header {
+      justify-content: center; /* Center logo and nav when wrapped */
+    }
+
     .login-container, .order-form-container, .order-summary-container { 
         padding: 2rem; 
     }
+
     .login-container h2, 
     .order-form-container h2, 
     .order-summary-container h2 { 
         font-size: 2rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul {
+        gap: 1rem; /* Reduce gap on very small screens */
+    }
+
+    header nav ul li a {
+        font-size: 0.9rem; /* Slightly smaller nav text */
+    }
+
+    .hero-content a.cta {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
     }
 }
