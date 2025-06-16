@@ -3,31 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Gourmet Bistro</title>
+  <title>Admin Registration - Gourmet Bistro</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
   <header>
     <div class="logo">Gourmet Bistro</div>
     <nav>
-  <ul>
-    <li><a href="{{ url_for('index') }}">Home</a></li>
-    {% if session.user_id %}
-      {% if user and user.is_admin %}
-        <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
-      {% endif %}
-      <li><a href="{{ url_for('user_profile') }}">Profile</a></li>
-      <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-    {% else %}
-      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
-    {% endif %}
-  </ul>
-</nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+      </ul>
+    </nav>
   </header>
   <section class="login-section">
     <div class="login-container">
-      <h2>Register</h2>
+      <h2>Admin Registration</h2>
       {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
           <div class="flash-messages">
@@ -37,30 +27,34 @@
           </div>
         {% endif %}
       {% endwith %}
-      <form action="{{ url_for('auth.register') }}" method="post">
-        <div class="form-field">
+      
+      <form action="{{ url_for('auth.register_admin') }}" method="post">
+        <div class="form-group">
           <label for="first_name">First Name</label>
           <input type="text" id="first_name" name="first_name" required>
         </div>
-        <div class="form-field">
+        <div class="form-group">
           <label for="last_name">Last Name</label>
           <input type="text" id="last_name" name="last_name" required>
         </div>
-        <div class="form-field">
+        <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required>
         </div>
-        <div class="form-field">
+        <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
         </div>
-        <div class="form-field">
+        <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" class="order-btn">Register</button>
+        <div class="form-group">
+          <label for="secret_key">Admin Secret Key</label>
+          <input type="password" id="secret_key" name="secret_key" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register Admin</button>
       </form>
-      <p>Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
     </div>
   </section>
 </body>

@@ -64,21 +64,42 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("Please log in to access this page.", "error")
+            return redirect(url_for('auth.login', next=request.url))
+        
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT is_admin FROM users WHERE id = %s", (user_id,))
+        user = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        
+        if not user or not user['is_admin']:
+            flash("You don't have permission to access this page.", "error")
+            return redirect(url_for('index'))
+            
+        return f(*args, **kwargs)
+    return decorated_function
+
 @app.context_processor
 def inject_user():
     user = None
-    user_id = session.get('user_id')
-    if user_id:
+    if 'user_id' in session:
         try:
             conn = get_db_connection()
             cursor = conn.cursor(dictionary=True)
-            cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+            cursor.execute("SELECT * FROM users WHERE id = %s", (session['user_id'],))
             user = cursor.fetchone()
             cursor.close()
             conn.close()
         except Exception as e:
-            logger.error(f"Error fetching user from DB: {e}", exc_info=True)
-    return dict(user=user)
+            logger.error(f"Error fetching user: {e}")
+    return {'user': user}
 
 def generate_order_code():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
@@ -248,6 +269,153 @@ def order_details():
             return redirect(url_for('view_menu'))
     
     return render_template('order.html')
+
+@app.route('/admin')
+@admin_required
+def admin_dashboard():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Get all users
+        cursor.execute("SELECT id, first_name, last_name, username, email, created_at FROM users")
+        users = cursor.fetchall()
+        
+        # Get all orders with user info
+        cursor.execute("""
+            SELECT o.*, u.username, u.email 
+            FROM orders o
+            LEFT JOIN users u ON o.user_id = u.id
+            ORDER BY o.order_date DESC
+        """)
+        orders = cursor.fetchall()
+        
+        cursor.close()
+        conn.close()
+        
+        return render_template('admin/dashboard.html', users=users, orders=orders)
+    except Exception as e:
+        logger.error(f"Error in admin dashboard: {str(e)}", exc_info=True)
+        flash("An error occurred while loading the admin dashboard.", "error")
+        return redirect(url_for('index'))  # Fixed redirect to prevent loop
+
+@app.route('/admin/order/<int:order_id>', methods=['GET', 'POST'])
+@admin_required
+def admin_order_detail(order_id):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        if request.method == 'POST':
+            new_status = request.form.get('status')
+            admin_notes = request.form.get('admin_notes', '')
+            
+            if new_status not in ['pending', 'processing', 'completed', 'cancelled']:
+                flash("Invalid status selected.", "error")
+                return redirect(url_for('admin_order_detail', order_id=order_id))
+            
+            cursor.execute("""
+                UPDATE orders 
+                SET status = %s, admin_notes = %s 
+                WHERE order_id = %s
+            """, (new_status, admin_notes, order_id))
+            conn.commit()
+            
+            flash("Order status updated successfully!", "success")
+            return redirect(url_for('admin_order_detail', order_id=order_id))
+        
+        # Get order details
+        cursor.execute("""
+            SELECT o.*, u.username, u.email 
+            FROM orders o
+            LEFT JOIN users u ON o.user_id = u.id
+            WHERE o.order_id = %s
+        """, (order_id,))
+        order = cursor.fetchone()
+        
+        if not order:
+            flash("Order not found.", "error")
+            return redirect(url_for('admin_dashboard'))
+        
+        # Get order items
+        cursor.execute("""
+            SELECT * FROM order_items 
+            WHERE order_id = %s
+        """, (order_id,))
+        items = cursor.fetchall()
+        
+        cursor.close()
+        conn.close()
+        
+        return render_template('admin/order_detail.html', order=order, items=items)
+    except Exception as e:
+        logger.error(f"Error in admin order detail: {str(e)}", exc_info=True)
+        flash("An error occurred while processing the order.", "error")
+        return redirect(url_for('admin_dashboard'))
+
+@app.route('/profile')
+@login_required
+def user_profile():
+    try:
+        user_id = session.get('user_id')
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Get user details
+        cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+        user = cursor.fetchone()
+        
+        # Get user's orders
+        cursor.execute("""
+            SELECT * FROM orders 
+            WHERE user_id = %s 
+            ORDER BY order_date DESC
+        """, (user_id,))
+        orders = cursor.fetchall()
+        
+        cursor.close()
+        conn.close()
+        
+        return render_template('profile.html', user=user, orders=orders)
+    except Exception as e:
+        logger.error(f"Error in user profile: {str(e)}", exc_info=True)
+        flash("An error occurred while loading your profile.", "error")
+        return redirect(url_for('index'))
+
+@app.route('/profile/order/<int:order_id>')
+@login_required
+def user_order_detail(order_id):
+    try:
+        user_id = session.get('user_id')
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Verify the order belongs to the user
+        cursor.execute("""
+            SELECT * FROM orders 
+            WHERE order_id = %s AND user_id = %s
+        """, (order_id, user_id))
+        order = cursor.fetchone()
+        
+        if not order:
+            flash("Order not found or you don't have permission to view it.", "error")
+            return redirect(url_for('user_profile'))
+        
+        # Get order items
+        cursor.execute("""
+            SELECT * FROM order_items 
+            WHERE order_id = %s
+        """, (order_id,))
+        items = cursor.fetchall()
+        
+        cursor.close()
+        conn.close()
+        
+        return render_template('order_detail.html', order=order, items=items)
+    except Exception as e:
+        logger.error(f"Error in user order detail: {str(e)}", exc_info=True)
+        flash("An error occurred while loading the order details.", "error")
+        return redirect(url_for('user_profile'))
 
 @app.route('/test-db-insert')
 def test_db_insert():

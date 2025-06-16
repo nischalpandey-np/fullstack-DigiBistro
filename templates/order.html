@@ -9,12 +9,21 @@
 <body>
   <header>
     <div class="logo">Gourmet Bistro</div>
-    <nav>
-      <ul>
-        <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-      </ul>
-    </nav>
+<nav>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    {% if session.user_id %}
+      {% if user and user.is_admin %}
+        <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+      {% endif %}
+      <li><a href="{{ url_for('user_profile') }}">Profile</a></li>
+      <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    {% else %}
+      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+    {% endif %}
+  </ul>
+</nav>
   </header>
   <section class="order-form-section">
     <div class="order-form-container">

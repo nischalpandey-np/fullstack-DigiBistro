@@ -88,8 +88,37 @@ def create_tables() -> bool:
         conn = get_db_connection()
         if conn:
             cursor = conn.cursor()
+            
+            # Create tables
             for table_def in table_definitions:
-                cursor.execute(table_def)
+                try:
+                    cursor.execute(table_def)
+                except mysql.connector.Error as e:
+                    logger.error(f"Error executing table creation: {e}")
+                    raise
+            
+            # Check and add is_admin column if not exists
+            cursor.execute("""
+                SELECT COUNT(*) FROM information_schema.columns 
+                WHERE table_schema = DATABASE() 
+                AND table_name = 'users' 
+                AND column_name = 'is_admin'
+            """)
+            if cursor.fetchone()[0] == 0:
+                cursor.execute("ALTER TABLE users ADD COLUMN is_admin BOOLEAN DEFAULT FALSE")
+                logger.info("Added is_admin column to users table")
+
+            # Check and add admin_notes column if not exists
+            cursor.execute("""
+                SELECT COUNT(*) FROM information_schema.columns 
+                WHERE table_schema = DATABASE() 
+                AND table_name = 'orders' 
+                AND column_name = 'admin_notes'
+            """)
+            if cursor.fetchone()[0] == 0:
+                cursor.execute("ALTER TABLE orders ADD COLUMN admin_notes TEXT NULL")
+                logger.info("Added admin_notes column to orders table")
+            
             conn.commit()
             cursor.close()
             conn.close()
@@ -97,7 +126,16 @@ def create_tables() -> bool:
             return True
     except mysql.connector.Error as err:
         logger.error(f"Error creating tables: {err}", exc_info=True)
+        if conn:
+            conn.rollback()
         return False
+    except Exception as e:
+        logger.error(f"Unexpected error: {e}", exc_info=True)
+        return False
+    finally:
+        if conn and conn.is_connected():
+            cursor.close()
+            conn.close()
 
 def save_user(first_name: str, last_name: str, username: str, email: str, password: str) -> Optional[int]:
     """Save a new user with hashed password"""

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile - Gourmet Bistro</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Gourmet Bistro</div>
+    <nav>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    {% if session.user_id %}
+      {% if user and user.is_admin %}
+        <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+      {% endif %}
+      <li><a href="{{ url_for('user_profile') }}">Profile</a></li>
+      <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    {% else %}
+      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+    {% endif %}
+  </ul>
+</nav>
+  </header>
+  <section class="profile-container">
+    <h1>Your Profile</h1>
+    
+    <div class="profile-info">
+      <div class="profile-info-row">
+        <span class="label">Name:</span>
+        <span class="value">{{ user.first_name }} {{ user.last_name }}</span>
+      </div>
+      <div class="profile-info-row">
+        <span class="label">Username:</span>
+        <span class="value">{{ user.username }}</span>
+      </div>
+      <div class="profile-info-row">
+        <span class="label">Email:</span>
+        <span class="value">{{ user.email }}</span>
+      </div>
+      <div class="profile-info-row">
+        <span class="label">Member Since:</span>
+        <span class="value">{{ user.created_at.strftime('%Y-%m-%d') }}</span>
+      </div>
+    </div>
+    
+    <h2>Your Orders</h2>
+    {% if orders %}
+    <div class="table-responsive">
+      <table class="profile-orders-table">
+        <thead>
+          <tr>
+            <th>Order Code</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>{{ order.order_code }}</td>
+            <td>{{ order.order_date.strftime('%Y-%m-%d') }}</td>
+            <td>{{ order.total_price|format_currency }}</td>
+            <td class="status-{{ order.status }}">{{ order.status|title }}</td>
+            <td>
+              <a href="{{ url_for('user_order_detail', order_id=order.order_id) }}" class="btn btn-sm btn-info">View</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p>You haven't placed any orders yet.</p>
+    {% endif %}
+  </section>
+  <footer class="footer">
+    <p>© 2025 Gourmet Bistro. All rights reserved.</p>
+  </footer>
+</body>
+</html>

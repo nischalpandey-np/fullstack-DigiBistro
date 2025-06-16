@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details - Gourmet Bistro</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Gourmet Bistro</div>
+    <nav>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    {% if session.user_id %}
+      {% if user and user.is_admin %}
+        <li><a href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+      {% endif %}
+      <li><a href="{{ url_for('user_profile') }}">Profile</a></li>
+      <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    {% else %}
+      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+    {% endif %}
+  </ul>
+</nav>
+  </header>
+  <section class="order-detail-container">
+    <h1>Order: {{ order.order_code }}</h1>
+    
+    <div class="order-status-badge status-{{ order.status }}">
+      {{ order.status|title }}
+    </div>
+    
+    <div class="order-info">
+      <div class="order-info-row">
+        <span class="label">Order Date:</span>
+        <span class="value">{{ order.order_date.strftime('%Y-%m-%d %H:%M') }}</span>
+      </div>
+      <div class="order-info-row">
+        <span class="label">Payment Method:</span>
+        <span class="value">{{ order.payment_method|replace('_', ' ')|title }}</span>
+      </div>
+      <div class="order-info-row">
+        <span class="label">Delivery Fee:</span>
+        <span class="value">{{ order.delivery_fee|format_currency }}</span>
+      </div>
+      <div class="order-info-row">
+        <span class="label">Total Price:</span>
+        <span class="value">{{ order.total_price|format_currency }}</span>
+      </div>
+      {% if order.admin_notes %}
+      <div class="order-info-row">
+        <span class="label">Admin Notes:</span>
+        <span class="value">{{ order.admin_notes }}</span>
+      </div>
+      {% endif %}
+    </div>
+    
+    <h2>Order Items</h2>
+    <div class="table-responsive">
+      <table class="order-items-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item.item_name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ (item.item_total / item.quantity)|format_currency if item.quantity > 0 else 0|format_currency }}</td>
+            <td>{{ item.item_total|format_currency }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    
+    <a href="{{ url_for('user_profile') }}" class="btn btn-back">Back to Profile</a>
+  </section>
+  <footer class="footer">
+    <p>© 2025 Gourmet Bistro. All rights reserved.</p>
+  </footer>
+</body>
+</html>
